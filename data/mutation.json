@@ -5,5 +5,5 @@
         "Content-Type": "application/json"
     },
     "httpMethod": "POST",
-    "body": "{  \"aniID\":1, \"progress\":1 }"
+    "body": "{  \"aniID\":101, \"progress\":7 }"
 }
