@@ -1,0 +1,18 @@
+{
+  "name": "anilist-updater",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "graphql-request": "^1.8.2",
+    "node-fetch": "^2.3.0",
+    "serverless-http": "^1.8.0"
+  }
+}

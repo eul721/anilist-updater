@@ -1,0 +1,9 @@
+{
+    "resource": "/",
+    "path": "/mutation",
+    "headers": {
+        "Content-Type": "application/json"
+    },
+    "httpMethod": "POST",
+    "body": "{  \"aniID\":1, \"progress\":1 }"
+}

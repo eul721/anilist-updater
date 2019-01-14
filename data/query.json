@@ -1,0 +1,10 @@
+{
+    "resource": "/",
+    "path": "/query",
+    "headers": {
+        "Content-Type": "application/json"
+    },
+    "httpMethod": "POST",
+    "body": "{ \"aniID\":11757}" 
+    
+}
