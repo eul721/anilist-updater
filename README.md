@@ -1,5 +1,5 @@
 # anilist-updater
-Update Anilist based on given anilist id, episode num. 
+Serverless - Update Anilist based on given anilist id, episode num. 
 
 Check diagram on draw.io
 
