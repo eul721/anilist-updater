@@ -1,0 +1,10 @@
+{
+    "resource": "/",
+    "path": "/search",
+    "headers": {
+        "Content-Type": "application/json"
+    },
+    "httpMethod": "POST",
+    "body": "{ \"searchString\":\"Sword Art Online\", \"dateStarted\":\"2018%%%%\"}" 
+    
+}

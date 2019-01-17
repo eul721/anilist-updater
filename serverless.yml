@@ -66,6 +66,9 @@ functions:
     - http:
         path: /query
         method: post
+    - http:
+        path: /search
+        method: post
     
 
 #    The following are a few example events you can configure
