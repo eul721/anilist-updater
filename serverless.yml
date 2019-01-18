@@ -59,6 +59,7 @@ functions:
     handler: src/anilist-updater.index
     environment:
       anilistOAuthToken: ${ssm:/lambda/anilist-updater/AnilistOAuthToken~true}
+      tvdb_APIToken: ${ssm:/lambda/anilist-updater/TVDB-APITok~true}
     events:
     - http:
         path: /mutation
@@ -71,6 +72,8 @@ functions:
         method: post
   tvdbIDToAnilistConverter:
     handler: src/id-converter.index
+    environment:
+      tvdb_APIToken: ${ssm:/lambda/anilist-updater/TVDB-APITok~true}
     
 
 #    The following are a few example events you can configure

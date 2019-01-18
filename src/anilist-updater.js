@@ -4,7 +4,7 @@ const express = require('express')
 const serverless = require('serverless-http')
 const bodyParser = require('body-parser')
 const app = express()
-const anilistModule = require('./anilistModule')
+const anilistModule = require('../lib/anilistModule')
 
 app.use(bodyParser.json());
 
