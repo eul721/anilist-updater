@@ -66,9 +66,11 @@ functions:
     - http:
         path: /query
         method: post
+    - http:
+        path: /search
+        method: post
   tvdbIDToAnilistConverter:
     handler: src/id-converter.index
-  
     
 
 #    The following are a few example events you can configure

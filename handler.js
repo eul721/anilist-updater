@@ -20,6 +20,11 @@ app.post('/mutation', async (req, res) => {
   res.send(result);
 })
 
+app.post('/search', async (req, res) => {
+  // const test = await anilistModule.search();
+  const result = await anilistModule.search(req.body);
+  res.send(result);
+})
 
 
 module.exports.index = serverless(app);

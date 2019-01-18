@@ -9,7 +9,7 @@ const graphQLClient = new GraphQLClient(ANILIST_ENDPOINT, {
     },
 })
 
-const findAnimeByID = `query($aniID: Int){
+const findAnimeById = `query($aniID: Int){
     Media (id: $aniID, type: ANIME) {
     id  
     idMal 
@@ -34,6 +34,20 @@ const findAnimeByID = `query($aniID: Int){
     }
 }`
 
+const findAnimeByTitleAndYear = `query($searchString: String, $dateStarted: String){
+    Animes: Page{
+      media(search: $searchString, startDate_like: $dateStarted) {
+        id
+        title{
+          english
+          romaji
+          native
+        }
+      }
+    }
+  }`
+
+
 const SaveMediaListEntry = `mutation($mediaId: Int, $progress: Int, $status: MediaListStatus, $listEntryId: Int){
     SaveMediaListEntry(mediaId:$mediaId, progress:$progress, status: $status, id: $listEntryId){
         mediaId
@@ -50,7 +64,7 @@ const saveListEntry = async function(vars){
 // Expects aniListID and progress (int)
 module.exports.mutation = async (vars) => {
     var totalEpisodes
-    return graphQLClient.request(findAnimeByID, vars)
+    return graphQLClient.request(findAnimeById, vars)
         .then(async (response) => {
             totalEpisodes = response.Media.episodes;
             return (response.Media.mediaListEntry) ? response.Media.mediaListEntry : false;
@@ -85,5 +99,9 @@ module.exports.mutation = async (vars) => {
 };
 
 module.exports.query = async (vars) => {
-    return graphQLClient.request(findAnimeByID, vars)
+    return graphQLClient.request(findAnimeById, vars)
+}
+
+module.exports.search = async (vars) => {
+    return graphQLClient.request(findAnimeByTitleAndYear, vars)
 }
