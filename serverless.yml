@@ -55,8 +55,8 @@ provider:
 #    - exclude-me-dir/**
 
 functions:
-  api:
-    handler: handler.index
+  anilistAPI:
+    handler: src/anilist-updater.index
     environment:
       anilistOAuthToken: ${ssm:/lambda/anilist-updater/AnilistOAuthToken~true}
     events:
@@ -66,6 +66,9 @@ functions:
     - http:
         path: /query
         method: post
+  tvdbIDToAnilistConverter:
+    handler: src/id-converter.index
+  
     
 
 #    The following are a few example events you can configure
