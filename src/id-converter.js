@@ -11,12 +11,20 @@ const SNS = new AWS.SNS()
 app.use(bodyParser.json());
 
 app.post('/', async (req, res) => {
-    const tvdb_query_res = await tvdb.getSeriesSeaonEpisode(req.body.tvdb_id, req.body.season, req.body.episode)
+    console.log(req.body);
+    console.log(req.body.title);
+    const tvdb_query_res = await tvdb.getSeriesSeaonEpisode(req.body.tvdb_id, req.body.season, 1)
     const airedArr = tvdb_query_res[0].firstAired.split("-")
+    console.log({
+        searchString: req.body.title.replace(/ \(.*\)/g, ""),
+        dateStarted: airedArr[0].concat(airedArr[1]).concat("%%")
+    });
+    
     const queryRes = await anilist.search({
         searchString: req.body.title.replace(/ \(.*\)/g, ""),
         dateStarted: airedArr[0].concat(airedArr[1]).concat("%%")
     })
+    console.log(queryRes);
     
     
     var params = {
