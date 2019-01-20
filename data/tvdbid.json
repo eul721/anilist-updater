@@ -1,7 +1,10 @@
 {
-    "tvdb_id": 259640,
-    "name": "Sword Art Online",
-    "season": 3,
-    "episode": 1,
-    "year": 2018
+    "resource": "/",
+    "path": "/",
+    "headers": {
+        "Content-Type": "application/json"
+    },
+    "httpMethod": "POST",
+    "body": "{\"tvdb_id\":259640,\"title\":\"Sword Art Online\",\"season\":3,\"episode\":1,\"year\":2018}"
+    
 }
