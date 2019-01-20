@@ -5,6 +5,6 @@
         "Content-Type": "application/json"
     },
     "httpMethod": "POST",
-    "body": "{\"tvdb_id\":259640,\"title\":\"Sword Art Online\",\"season\":3,\"episode\":1,\"year\":2018}"
+    "body": "{\"tvdb_id\":262954,\"title\":\"JoJo's Bizarre Adventure (2012)\",\"season\":4,\"episode\":1,\"year\":2018}"
     
 }

@@ -14,7 +14,7 @@ app.post('/', async (req, res) => {
     const tvdb_query_res = await tvdb.getSeriesSeaonEpisode(req.body.tvdb_id, req.body.season, req.body.episode)
     const airedArr = tvdb_query_res[0].firstAired.split("-")
     const queryRes = await anilist.search({
-        searchString: req.body.title,
+        searchString: req.body.title.replace(/ \(.*\)/g, ""),
         dateStarted: airedArr[0].concat(airedArr[1]).concat("%%")
     })
     

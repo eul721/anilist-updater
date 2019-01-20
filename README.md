@@ -10,6 +10,6 @@ Check diagram on draw.io
 - [x] Update behavior if it does exist
 - [x] Update behavior if it exists, but completed
 - [x] Use Page in anilist query 'stead of Media() to fetch multiple records
-- [ ] Strip out year phrases like "(2012)" in main server code
+- [x] Strip out year phrases like "(2012)" in tvdb id converter
 - [ ] Send discord notification when error is encountered.
 
