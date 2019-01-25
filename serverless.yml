@@ -33,6 +33,7 @@ functions:
     environment:
       anilistOAuthToken: ${ssm:/lambda/anilist-updater/AnilistOAuthToken~true}
       tvdb_APIToken: ${ssm:/lambda/anilist-updater/TVDB-APITok~true}
+      discordWebhookToken: ${ssm:/lambda/anilist-updater/DiscordWebhookToken~true}
     timeout: 20
     events:
     - sqs:
