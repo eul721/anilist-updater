@@ -5,6 +5,6 @@
         "Content-Type": "application/json"
     },
     "httpMethod": "POST",
-    "body": "{\"tvdb_id\":262954,\"title\":\"JoJo's Bizarre Adventure (2012)\",\"season\":4,\"episode\":1,\"year\":2018}"
+    "body": "{\"tvdb_id\":354198,\"title\":\"Kaguya\",\"season\":1,\"episode\":4,\"year\":2019}"
     
 }

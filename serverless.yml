@@ -52,6 +52,7 @@ functions:
         method: post
   tvdbIDToAnilistConverter:
     handler: src/id-converter.index
+    timeout: 20
     environment:
       tvdb_APIToken: ${ssm:/lambda/anilist-updater/TVDB-APITok~true}
       topicArn:  { "Fn::Join" : [ ":", [ "arn:aws:sns:${self:custom.region}", { "Ref" : "AWS::AccountId" }, "${self:custom.notifyForAnilistUpdate}" ] ] }
