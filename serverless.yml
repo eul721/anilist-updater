@@ -17,10 +17,18 @@ provider:
         ]
       }
 
+plugins:
+  - serverless-domain-manager
+
 custom:
   region: 'us-east-1'
   notifyForAnilistUpdate: ${self:service}-notifyForAnilistUpdate
   queueForAnilistUpdate: ${self:service}-queueForAnilistUpdate
+  customDomain: 
+    domainName: anilist.shibanoodle.com
+    stage: dev
+    certificateName: '*.shibanoodle.com'
+    createRoute53Record: true
 
 # you can overwrite defaults here
 #  stage: dev
@@ -28,6 +36,17 @@ custom:
 
 
 functions:
+  tvdbIDToAnilistConverter:
+    handler: src/id-converter.index
+    timeout: 20
+    environment:
+      tvdb_APIToken: ${ssm:/lambda/anilist-updater/TVDB-APITok~true}
+      topicArn:  { "Fn::Join" : [ ":", [ "arn:aws:sns:${self:custom.region}", { "Ref" : "AWS::AccountId" }, "${self:custom.notifyForAnilistUpdate}" ] ] }
+    events:
+    - http:
+        path: /tvdb
+        method: post
+    
   anilistAPI:
     handler: src/anilist-updater.index
     environment:
@@ -50,16 +69,7 @@ functions:
     - http:
         path: /search
         method: post
-  tvdbIDToAnilistConverter:
-    handler: src/id-converter.index
-    timeout: 20
-    environment:
-      tvdb_APIToken: ${ssm:/lambda/anilist-updater/TVDB-APITok~true}
-      topicArn:  { "Fn::Join" : [ ":", [ "arn:aws:sns:${self:custom.region}", { "Ref" : "AWS::AccountId" }, "${self:custom.notifyForAnilistUpdate}" ] ] }
-    events:
-    - http:
-        path: /
-        method: post
+  
 
     
 
